@@ -1,23 +1,24 @@
-#####################
-### LAUNCH SERVER ###
-#####################
-
-# This bash script updates the linux distro; checks and fixes the IP; 
-# checks, installs, configures Apache2, MySQL, Django, and Python.
-# Written by GAJ Febraury 2014 for Raspberry Pi 2, Raspbian OS
-
 #!/bin/bash
 
-################
-### OS check ###
-################
+# LAUNCH SERVER 
+# --------------
 
-sudo apt-get updates
-sudo apt-get upgrades
+# This bash script updates the linux distro; assigns a static IP; 
+# installs and configures Apache2, MySQL, Django, and Python.
+# Written by GAJ Febraury 2014 for Raspberry Pi 2, Raspbian OS
 
-#################
-### IP static ###
-#################
+# ---------
+# OS check 
+# ---------
+
+apt-get updates
+apt-get upgrades
+
+# ----------
+# IP static
+# ----------
+
+# file: /etc/network/interfaces
 
 while read LINE
 do 
@@ -37,9 +38,9 @@ do
 done < interfaces 
 # if var = TRUE, pass over
 
-######################
-### APACHE install ###
-######################
+# ---------------
+# APACHE install 
+# ---------------
 
 ps auxw | grep apache2 | grep -v grep > /dev/null
 
@@ -53,50 +54,57 @@ sudo apt-get install -y apache2
 
 # special packages for python?
 
-#####################
-### MYSQL install ###
-#####################
+# --------------
+# MYSQL install 
+# --------------
+
+ps auxw | grep mysql | grep -v grep > /
+
+if [$? != 0 ]
+then
+	/etc/
+fi
 
 sudo apt-get install mysql-server mysql-client
 
-####################
-### MYSQL config ###
-####################
+# -------------
+# MYSQL config 
+# -------------
 
 mysqladmin -u root password passwordhere
 
 
 
-######################
-### PYTHON install ###
-######################
+# ---------------
+# PYTHON install
+# ---------------
 
 
 
-######################
-### DJANGO install ###
-######################
+# ---------------
+# DJANGO install
+# ---------------
 
 apt-get install python-django python-mysqldb
 
-#####################
-### DJANGO config ###
-#####################
+# --------------
+# DJANGO config
+# --------------
 
 
 
-#####################
-### APACHE config ###
-#####################
+# --------------
+# APACHE config 
+# --------------
 
 
 
 # place django python files in /var/www
 # restart apache
 
-##############
-### REBOOT ###
-##############
+# -------
+# REBOOT 
+# -------
 
 sudo reboot
 
