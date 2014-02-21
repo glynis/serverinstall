@@ -5,7 +5,7 @@
 
 # This bash script updates the linux distro; assigns a static IP; 
 # installs and configures Apache2, MySQL, Django, and Python.
-# Written by GAJ Febraury 2014 for Raspberry Pi 2, Raspbian OS
+# Written by GAJ Febraury 2014 for Raspberry Pi 2, Raspbian OS.
 
 # ---------
 # OS check 
@@ -15,41 +15,35 @@ apt-get updates
 apt-get upgrades
 
 # ----------
-# IP static
+# IP config
 # ----------
 
 # file: /etc/network/interfaces
 
-while read LINE
-do 
-# check line 'iface eth0 inet ...' ends in 'static'
-#	what about 'iface defaut inet dchp/static' ?
-# check for address, netmask, network, gateway, nameserver lines
-# if yes, var = TRUE, else, var = FALSE
-done < interfaces
+ip_config="interfaces"
 
-# if var = FALSE, while loop
 while read LINE
 do
-# change 'iface eth0 inet dchp' to 'iface eth0 inet static'
-# add blank line
-# add address, netmask, network, gateway, nameserver
+#	if  [ $line="iface eth0 inet dynamic" ]
+#	then
+		sed s/"iface eth0 inet dynamic"/"iface eth0 inet static"/ $ip_config
+#	fi
+# add address, netmask, network, gateway, nameserver lines
+done < $ip_config
 
-done < interfaces 
-# if var = TRUE, pass over
 
 # ---------------
 # APACHE install 
 # ---------------
 
-ps auxw | grep apache2 | grep -v grep > /dev/null
+# ps auxw | grep apache2 | grep -v grep > /dev/null
 
-if [ $? != 0 ]
-then 
-	/etc/init.d/apache2 start > /dev/null
-fi
+# if [ $? != 0 ]
+# then 
+#	/etc/init.d/apache2 start > /dev/null
+# fi
  
-sudo apt-get install -y apache2
+# sudo apt-get install -y apache2
 # this needs cleaning up
 
 # special packages for python?
@@ -58,20 +52,20 @@ sudo apt-get install -y apache2
 # MYSQL install 
 # --------------
 
-ps auxw | grep mysql | grep -v grep > /
+# ps auxw | grep mysql | grep -v grep > /
 
-if [$? != 0 ]
-then
-	/etc/
-fi
+# if [$? != 0 ]
+# then
+#	/etc/
+# fi
 
-sudo apt-get install mysql-server mysql-client
+# sudo apt-get install mysql-server mysql-client
 
 # -------------
 # MYSQL config 
 # -------------
 
-mysqladmin -u root password passwordhere
+# mysqladmin -u root password passwordhere
 
 
 
@@ -85,7 +79,7 @@ mysqladmin -u root password passwordhere
 # DJANGO install
 # ---------------
 
-apt-get install python-django python-mysqldb
+# apt-get install python-django python-mysqldb
 
 # --------------
 # DJANGO config
@@ -106,5 +100,5 @@ apt-get install python-django python-mysqldb
 # REBOOT 
 # -------
 
-sudo reboot
+# sudo reboot
 
