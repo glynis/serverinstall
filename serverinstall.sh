@@ -14,6 +14,14 @@
 apt-get updates
 apt-get upgrades
 
+# ---------------
+# PYTHON install
+# ---------------
+
+# install python here so it can be called later in the script
+
+# reboot needed?
+
 # ----------
 # IP config
 # ----------
@@ -66,12 +74,6 @@ done < $ip_config
 # -------------
 
 # mysqladmin -u root password passwordhere
-
-
-
-# ---------------
-# PYTHON install
-# ---------------
 
 
 
