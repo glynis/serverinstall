@@ -18,23 +18,6 @@ apt-get upgrades
 
 # install python here
 
-# ----------
-# IP config
-# ----------
-
-IP_DIR="/etc/network/"
-ip_file="interfaces"
-
-while read LINE
-do
-#	if  [ $line="iface eth0 inet dynamic" ]
-#	then
-		sed s/"iface eth0 inet dynamic"/"iface eth0 inet static"/ $ipconfig
-#	fi
-# add address, netmask, network, gateway, nameserver lines
-done < $ipconfig
-
-
 # ---------------
 # APACHE install 
 # ---------------

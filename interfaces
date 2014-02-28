@@ -1,7 +1,7 @@
 auto lo
 
 iface lo inet loopback
-iface eth0 inet dynamic
+iface eth0 inet dchp
 
 allow-hotplug wlan0
 iface wlan0 inet manual
