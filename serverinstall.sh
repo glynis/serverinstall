@@ -3,8 +3,8 @@
 # LAUNCH SERVER 
 # --------------
 
-# This bash script updates the linux distro; assigns a static IP; 
-# installs and configures Apache2, MySQL, Django, and Python.
+# This bash script updates the linux distro; 
+# installs Python, Apache2, MySQL, and Django.
 # Written by GAJ Febraury 2014 for Raspberry Pi 2, Raspbian OS.
 
 # ---------
@@ -18,26 +18,23 @@ apt-get upgrades
 # PYTHON install
 # ---------------
 
-# install python here so it can be called later in the script
-
-# reboot needed?
+# install python here
 
 # ----------
 # IP config
 # ----------
 
-# file: /etc/network/interfaces
-
-ip_config="interfaces"
+IP_DIR="/etc/network/"
+ip_file="interfaces"
 
 while read LINE
 do
 #	if  [ $line="iface eth0 inet dynamic" ]
 #	then
-		sed s/"iface eth0 inet dynamic"/"iface eth0 inet static"/ $ip_config
+		sed s/"iface eth0 inet dynamic"/"iface eth0 inet static"/ $ipconfig
 #	fi
 # add address, netmask, network, gateway, nameserver lines
-done < $ip_config
+done < $ipconfig
 
 
 # ---------------
@@ -69,12 +66,7 @@ done < $ip_config
 
 # sudo apt-get install mysql-server mysql-client
 
-# -------------
-# MYSQL config 
-# -------------
-
 # mysqladmin -u root password passwordhere
-
 
 
 # ---------------
@@ -82,18 +74,6 @@ done < $ip_config
 # ---------------
 
 # apt-get install python-django python-mysqldb
-
-# --------------
-# DJANGO config
-# --------------
-
-
-
-# --------------
-# APACHE config 
-# --------------
-
-
 
 # place django python files in /var/www
 # restart apache
