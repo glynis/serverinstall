@@ -1,10 +1,8 @@
 #!/bin/bash
 
-# LAUNCH SERVER 
-# --------------
-
 # This bash script updates the linux distro; 
-# installs Python, Apache2, MySQL, and Django.
+# installs Python, Apache2, MySQL, and Django;
+# copies modified config files from MBP to RP.
 # Written by GAJ Febraury 2014 for Raspberry Pi 2, Raspbian OS.
 
 # ---------
@@ -77,6 +75,8 @@ done < $ipconfig
 
 # place django python files in /var/www
 # restart apache
+
+# copy config files from mbp to rp
 
 # -------
 # REBOOT 
