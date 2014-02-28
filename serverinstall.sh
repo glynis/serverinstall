@@ -21,16 +21,8 @@ apt-get upgrades
 # ---------------
 # APACHE install 
 # ---------------
-
-# ps auxw | grep apache2 | grep -v grep > /dev/null
-
-# if [ $? != 0 ]
-# then 
-#	/etc/init.d/apache2 start > /dev/null
-# fi
  
-# sudo apt-get install -y apache2
-# this needs cleaning up
+apt-get install -y apache2
 
 # special packages for python?
 
@@ -61,9 +53,6 @@ apt-get upgrades
 
 # copy config files from mbp to rp
 
-# -------
-# REBOOT 
-# -------
-
-# sudo reboot
-
+# --------------
+# Restart server
+# --------------
