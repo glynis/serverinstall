@@ -16,7 +16,7 @@ apt-get upgrades
 # PYTHON install
 # ---------------
 
-# install python here
+apt-get install -y python-dev
 
 # ---------------
 # APACHE install 
@@ -30,16 +30,15 @@ apt-get install -y apache2
 # MYSQL install 
 # --------------
 
-apt-get install mysql-server mysql-client
+apt-get install -y mysql-server mysql-client
 
-mysqladmin -u root password passwordhere
-
+# mysqladmin -u root password passwordhere
 
 # ---------------
 # DJANGO install
 # ---------------
 
- apt-get install python-django python-mysqldb
+apt-get install python-django python-mysqldb
 
 # place django python files in /var/www
 # restart apache
