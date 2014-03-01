@@ -30,23 +30,16 @@ apt-get install -y apache2
 # MYSQL install 
 # --------------
 
-# ps auxw | grep mysql | grep -v grep > /
+apt-get install mysql-server mysql-client
 
-# if [$? != 0 ]
-# then
-#	/etc/
-# fi
-
-# sudo apt-get install mysql-server mysql-client
-
-# mysqladmin -u root password passwordhere
+mysqladmin -u root password passwordhere
 
 
 # ---------------
 # DJANGO install
 # ---------------
 
-# apt-get install python-django python-mysqldb
+ apt-get install python-django python-mysqldb
 
 # place django python files in /var/www
 # restart apache
