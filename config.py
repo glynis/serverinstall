@@ -20,7 +20,7 @@ gateway = str(raw_input('Enter desired gateway value:'))
 
 with open(IPfileA, 'r') as inputIP, open(IPfileB, 'w') as outputIP:
 	for line in inputIP.readlines():
-		if line.strip() == 'iface eth0 inet dchp':
+		if line.strip() == 'iface eth0 inet dhcp':
 			outputIP.write('iface eth0 inet static\n\naddress ' + address + '\nnetmask' + netmask + '\nnetwork ' + network + '\nbroadcast ' + broadcast + '\ngateway ' + gateway + '\n')
 # user input above values?
 		else:
